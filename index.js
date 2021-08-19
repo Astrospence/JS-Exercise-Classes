@@ -64,10 +64,11 @@ class Person {
 
 const captainAmerica = new Person('Steve Rogers', 80);
 
-console.log('Task 1:');
+console.log('Task 1{');
 console.log(captainAmerica.toString());
 console.log(captainAmerica.eat('oreos'));
 console.log(captainAmerica.poop());
+console.log('}');
 
 /*
   TASK 2
@@ -91,22 +92,36 @@ class Car {
     this.odometer = 0;
   }
   fuel(gallons){
+    const tankCapacity = 20;
+    if(this.tank + gallons > tankCapacity){
+      this.tank = 20;
+    }else{
     this.tank = this.tank + gallons;
+    }
+    return `tank has ${this.tank} gallons of fuel`;
   }
   drive(distance){
     const range = this.tank * this.milesPerGallon;
     if(distance <= range){
       this.tank = this.tank - (distance / this.milesPerGallon);
       this.odometer = this.odometer + distance;
+      return `odometer says ${this.odometer} miles`;
     }else{
       this.tank = 0;
       this.odometer = this.odometer + range;
-      return `I ran out of fuel at ${this.odometer}} miles!`;
+      return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
 }
 
-console.log("Task 2: class Car created");
+const truck = new Car('F-150', 25);
+
+console.log('Task 2{');
+console.log(truck.fuel(18));
+console.log(truck.drive(50));
+console.log(truck.fuel(3));
+console.log(truck.drive(800));
+console.log('}')
 
 /*
   TASK 3
