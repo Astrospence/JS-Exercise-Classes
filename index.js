@@ -77,8 +77,29 @@ console.log('Task 1: class Person created');
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fuel(gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    const range = this.tank * this.milesPerGallon;
+    if(distance <= range){
+      this.tank = this.tank - (distance / this.milesPerGallon);
+      this.odometer = this.odometer + distance;
+    }else{
+      this.tank = 0;
+      this.odometer = this.odometer + range;
+      return `I ran out of fuel at ${this.odometer}} miles!`;
+    }
+  }
 }
+
+console.log("Task 2: class Car created");
 
 /*
   TASK 3
@@ -93,8 +114,17 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
+  }
+  speak(){
+    `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
+
+console.log('Task 3: class Lambdasian created');
 
 /*
   TASK 4
