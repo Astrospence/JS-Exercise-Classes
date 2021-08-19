@@ -51,16 +51,23 @@ class Person {
     if(this.stomach.length < 10){
       this.stomach.push(edible);
     }
+    return this.stomach;
   }
   poop(){
     this.stomach = [];
+    return this.stomach;
   }
   toString(){
     return `${this.name}, ${this.age}`;
   }
 }
 
-console.log('Task 1: class Person created');
+const captainAmerica = new Person('Steve Rogers', 80);
+
+console.log('Task 1:');
+console.log(captainAmerica.toString());
+console.log(captainAmerica.eat('oreos'));
+console.log(captainAmerica.poop());
 
 /*
   TASK 2
