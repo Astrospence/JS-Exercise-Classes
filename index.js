@@ -84,10 +84,51 @@ console.log('}');
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
+/*//I tried it the old way as well to troubleshoot why the class isn't passing all the tests//
+
+function OldCar(model, mpg){
+  this.model = model;
+  this.milesPerGallon = mpg;
+  this.tank = 0;
+  this.odometer = 0;
+}
+
+OldCar.prototype.fuel = function(gallons){
+  this.tank = this.tank + gallons;
+  return `tank has ${this.tank} gallons of fuel`;
+}
+
+OldCar.prototype.drive = function(distance){
+    const range = this.tank * this.milesPerGallon;
+    if(distance <= range){
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - (distance / this.milesPerGallon);
+      return `odometer says ${this.odometer} miles`;
+    }else{
+      this.odometer = this.odometer + range;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
+
+  const Truck = new OldCar('Chevy Silverado', 12);
+
+  Truck.prototype = Object.create(OldCar.prototype);
+
+  console.log('Task 2{');
+  console.log(Truck.fuel(18));
+  console.log(Truck.drive(50));
+  console.log(Truck.fuel(5));
+  console.log(Truck.drive(800));
+  console.log('}');
+*/
+
+
+
 class Car {
-  constructor(model, milesPerGallon){
+  constructor(model, mpg){
     this.model = model;
-    this.milesPerGallon = milesPerGallon;
+    this.milesPerGallon = mpg;
     this.tank = 0;
     this.odometer = 0;
   }
@@ -103,12 +144,12 @@ class Car {
   drive(distance){
     const range = this.tank * this.milesPerGallon;
     if(distance <= range){
-      this.tank = this.tank - (distance / this.milesPerGallon);
       this.odometer = this.odometer + distance;
+      this.tank = this.tank - (distance / this.milesPerGallon);
       return `odometer says ${this.odometer} miles`;
     }else{
-      this.tank = 0;
       this.odometer = this.odometer + range;
+      this.tank = 0;
       return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
@@ -119,9 +160,10 @@ const truck = new Car('F-150', 25);
 console.log('Task 2{');
 console.log(truck.fuel(18));
 console.log(truck.drive(50));
-console.log(truck.fuel(3));
+console.log(truck.fuel(5));
 console.log(truck.drive(800));
 console.log('}')
+
 
 /*
   TASK 3
