@@ -142,7 +142,7 @@ console.log('Task 3: class Lambdasian created');
 */
 class Instructor extends Lambdasian{
   constructor(attr){
-    super(name, age, location);
+    super(attr);
       this.specialty = attr.specialty;
       this.favLanguage = attr.favLanguage;
       this.catchPhrase = attr.catchPhrase;
@@ -174,7 +174,7 @@ console.log('Task 4: childClass Instructor created');
 */
 class Student extends Lambdasian{
    constructor(attr){
-     super(name, age, location);
+     super(attr);
      this.previousBackground = attr.previousBackground;
      this.className = attr.className;
      this.favSubjects = attr.favSubjects;
@@ -205,9 +205,21 @@ console.log('Task 5: childClass Student created');
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
+class ProjectManager extends Instructor{
+   constructor(attr){
+     super(attr);
+     this.gradClassName = attr.gradClassName;
+     this.favInstructor = attr.favInstructor
+   }
+   standUp(slackChannel){
+     return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+   }
+   debugsCode(student, subject){
+     return `${this.name} debugs ${student.name}'s code on ${subject}`;
+   }
 }
+
+console.log('Task 6: grandChildClass ProjectManager created');
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
