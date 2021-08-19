@@ -142,11 +142,19 @@ class Lambdasian {
     this.location = attr.location;
   }
   speak(){
-    `Hello my name is ${this.name}, I am from ${this.location}`;
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 }
 
-console.log('Task 3: class Lambdasian created');
+const teacher = new Lambdasian({
+  name: 'Charles Xavier',
+  age: 60,
+  location: 'inside your mind'
+});
+
+console.log('Task 3{');
+console.log(teacher.speak());
+console.log('}');
 
 /*
   TASK 4
