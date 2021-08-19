@@ -185,7 +185,24 @@ class Instructor extends Lambdasian{
   }
 }
 
-console.log('Task 4: childClass Instructor created');
+const darkPheonix = new Instructor({
+  name: 'Jean Grey',
+  age: 50,
+  location: 'Xmen headquarters',
+  specialty: 'telepathy',
+  catchPhrase: 'it is better this way'
+});
+
+const pupil = {
+  name: 'Brandon',
+  age: 4,
+  specialty: 'being a crazy toddler'
+}
+
+console.log('Task 4{');
+console.log(darkPheonix.demo('paint'));
+console.log(darkPheonix.grade(pupil, 'finger painting'));
+console.log('}');
 
 /*
   TASK 5
@@ -213,14 +230,27 @@ class Student extends Lambdasian{
      return `Loving ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}!`;
    }
    PRAssignment(subject){
-     return `${this.name} has submitted a PR for ${this.subject}`;
+     return `${this.name} has submitted a PR for ${subject}`;
    }
    sprintChallenge(subject){
      return `${this.name} has begun sprint challenge on ${subject}`;
    }
 }
 
-console.log('Task 5: childClass Student created');
+const spencer = new Student({
+  name: 'Spencer Wood',
+  age: 28,
+  location: 'Spanish Fork, UT',
+  previousBackground: 'welder/fabricator',
+  className: 'Web47',
+  favSubjects: ['HTML', 'CSS', 'Javascript']
+});
+
+console.log('Task 5{');
+console.log(spencer.listSubjects());
+console.log(spencer.PRAssignment('Javascript'));
+console.log(spencer.sprintChallenge('HTML'));
+console.log('}')
 
 /*
   TASK 6
