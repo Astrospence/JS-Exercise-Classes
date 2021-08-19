@@ -250,7 +250,7 @@ console.log('Task 5{');
 console.log(spencer.listSubjects());
 console.log(spencer.PRAssignment('Javascript'));
 console.log(spencer.sprintChallenge('HTML'));
-console.log('}')
+console.log('}');
 
 /*
   TASK 6
@@ -279,7 +279,20 @@ class ProjectManager extends Instructor{
    }
 }
 
-console.log('Task 6: grandChildClass ProjectManager created');
+const pm = new ProjectManager({
+  name: 'Gandalf',
+  age: 'many lifetimes of man',
+  location: 'Middle Earth',
+  specialty: 'Magic',
+  catchPhrase: 'fly you fools!',
+  gradClassName: 'Web47',
+  favInstructor: 'Brit Hemming'
+});
+
+console.log('Task 6{');
+console.log(pm.standUp('Web47'));
+console.log(pm.debugsCode(spencer, 'HTML'));
+console.log('}');
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
