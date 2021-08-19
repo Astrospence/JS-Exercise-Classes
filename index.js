@@ -132,21 +132,21 @@ class Car {
     this.tank = 0;
     this.odometer = 0;
   }
-  fuel(gallons){
+  fill(gallons){
     const tankCapacity = 20;
     if(this.tank + gallons > tankCapacity){
       this.tank = 20;
     }else{
     this.tank = this.tank + gallons;
     }
-    return `tank has ${this.tank} gallons of fuel`;
+    return `My truck's tank has ${this.tank} gallons of fuel`;
   }
   drive(distance){
     const range = this.tank * this.milesPerGallon;
     if(distance <= range){
       this.odometer = this.odometer + distance;
       this.tank = this.tank - (distance / this.milesPerGallon);
-      return `odometer says ${this.odometer} miles`;
+      return `My truck's odometer says ${this.odometer} miles`;
     }else{
       this.odometer = this.odometer + range;
       this.tank = 0;
@@ -158,11 +158,11 @@ class Car {
 const truck = new Car('F-150', 25);
 
 console.log('Task 2{');
-console.log(truck.fuel(18));
+console.log(truck.fill(18));
 console.log(truck.drive(50));
-console.log(truck.fuel(5));
+console.log(truck.fill(5));
 console.log(truck.drive(800));
-console.log('}')
+console.log('}');
 
 
 /*
